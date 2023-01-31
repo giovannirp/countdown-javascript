@@ -6,6 +6,11 @@ const hoursElement = document.querySelector("#hours");
 const minsElement = document.querySelector("#mins");
 const secsElement = document.querySelector("#secs");
 
+function linkIsncrition() {
+  const url = "https://www.terra.com.br/";
+  window.open(url, '_target');
+}
+
 // Executa myfunc a cada segundo
 const timeFuction = setInterval(function() {
   const now = new Date().getTime();
