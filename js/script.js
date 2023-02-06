@@ -1,5 +1,7 @@
 // A data/hora para a qual queremos fazer a contagem regressiva
-const countDownDate = new Date("nov 25, 2023 16:37:52").getTime();
+// ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+const countDownDate = new Date("Jul 01, 2023 14:37:52").getTime();
 
 const daysElement = document.querySelector("#days");
 const hoursElement = document.querySelector("#hours");
@@ -11,6 +13,14 @@ function linkIsncrition() {
   window.open(url, '_target');
 }
 
+function twoDuigits(digit) {
+  if (digit < 10) {
+    return('0' + digit)
+  } else {
+    return(digit)
+  }
+}
+
 // Executa myfunc a cada segundo
 const timeFuction = setInterval(function() {
   const now = new Date().getTime();
@@ -18,9 +28,9 @@ const timeFuction = setInterval(function() {
 
 // Calculando os dias, horas, minutos e segundos restantes
 const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+const hours = twoDuigits(Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+const minutes = twoDuigits(Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60)));
+const seconds = twoDuigits(Math.floor((timeleft % (1000 * 60)) / 1000));
 
 // O resultado é enviado para o elemento específico
 daysElement.innerHTML = days;
